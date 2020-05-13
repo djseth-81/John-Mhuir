@@ -15,7 +15,7 @@ print("More casual input style")
 print("Added travel ammenities and places locator")
 print("Place information and Identification ranges from formal/formatted address to coordinates to unique ID. Maybe that needs to be one method")
 
-api_key = "AIzaSyDu0VFfE_mmiACPlFfyMTsD-_GYAqqoXQI" #--> ISOLATE API KEYS TO HIDDEN FOLDER ACCESSIBLE ONLY THROUGH FUNCTION AND PASSCODE
+api_key = "you_key_here" #--> GET YOUR OWN
 gmaps = googlemaps.Client(key = api_key)
 
 #Establishing user's geolocation
@@ -155,11 +155,3 @@ if distance_matrix:
     travel_time = travel_duration['rows'][0]['elements'][0]['duration']['text']
     print('Distance from {}, to {} is approximately {}'.format(where_am_i,destination,travel_distance))
     print('Travel time is approximately {}'.format(travel_time))
-
-# UPDATES
-    # OOP this bitch so that the database build can have both specified formatted addresses, coordinates, and Place ID's. Maybe even add extras found in the json
-    # OBSCURITY UPDATE: places_nearby() for extremey common names
-    # OBSCURITY UPDATE: Include text_query = phonenumber filter
-    # Improve geolocation using MAC/Wwifi/Cell tower ID to narrow estimation
-    # Account for times of business/avaliability when optimizing route
-    # Combining modes of transportation to optimize route and increase timing accuracy
