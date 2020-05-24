@@ -114,6 +114,7 @@ with open(test, 'a+') as file:
     #Now we analyze
     file.seek(0,0)
     for line in file:
+        Dictionary(line)
         line = line.lower().strip('\n')
         line = re.split(' to | then | and | finally ', line)
         for thwap in line:
