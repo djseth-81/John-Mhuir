@@ -6,7 +6,53 @@ from datetime import datetime
 from googlemaps import timezone
 from googlemaps import directions
 from googlemaps import geolocation
+from PyDictionary import PyDictionary
 from googlemaps import distance_matrix
+
+def Dictionary(phrase):
+    phrase = phrase.split()
+    dictionary = PyDictionary()
+    webster = 'en_dictionary.txt'
+    for word in phrase:
+        with open(webster, 'a+') as file:
+            file.seek(0,0)
+            fuck = []
+            for line in file:
+                term = {}
+                line = line.strip('\n')
+                word = word.strip(',').upper()
+                if re.search('\A{} '.format(word), line):
+                    god_damn_it = 1
+                    fuck.append(god_damn_it)
+                else:
+                    god_damn_it = 0
+                    fuck.append(god_damn_it)
+            if 1 not in fuck:
+                try:
+                    pass
+                    definitions = dictionary.meaning(word)
+                    synonyms = dictionary.synonym(word)
+                    antonyms = dictionary.antonym(word)
+
+                    if definitions:
+                        term['definition'] = []
+                        for key, items in definitions.items():
+                            for item in items:
+                                sit = key+': '+item
+                                term['definition'].append(sit)
+                    if synonyms:
+                        term['synonym'] = synonyms
+                    if antonyms:
+                        term['antonym'] = antonyms
+                except Exception as e:
+                    print("Error: The Following Error occured: %s" % e)
+                ooo = []
+                ooo.append(word)
+                for key, owo in term.items():
+                    for uwu in owo:
+                        ooo.append(str(key)+' '+uwu)
+                    woo = " // ".join(ooo)
+                    file.write('\n'+woo+'\n')
 
 print ("### DEV NOTES ###")
 print("BETA UNIT 2")
